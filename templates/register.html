@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            background-color: #f0f0f0; /* Background color for the entire page */
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            color: #333; /* Heading text color */
+        }
+
+        h3 {
+            color: #007bff; /* Message text color */
+        }
+
+        form {
+            background-color: #fff; /* Form background color */
+            padding: 20px;
+            border: 1px solid #ccc; /* Form border */
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Form box shadow */
+        }
+
+        p {
+            color: #555; /* Paragraph text color */
+            margin-top: 10px;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 20%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff; /* Submit button background color */
+            color: #fff; /* Submit button text color */
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Sign in below</h1>
+
+{% for message in messages %}
+<h3>{{ message }}</h3>
+{% endfor %}
+
+<form method="POST" action="register">
+    {% csrf_token %}
+    <p>Enter username</p>
+    <input type="text" name="username" />
+
+    <p>Enter password</p>
+    <input type="password" name="password" />
+
+    <p>Retype password</p>
+    <input type="password" name="password2" /><br>
+
+    <input type="submit" value="Submit" />
+</form>
+
+</body>
+</html>
